@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Nani ❤️</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8f9;
+    color: #281316;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+:root {
+    --red: #e50935;
+    --dark-red: #9f0828;
+    --pink: #ff5273;
+    --light-pink: #fff0f3;
+    --cream: #fffaf8;
+    --white: #ffffff;
+    --dark: #251316;
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+#heartContainer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: #ff3c62;
+    animation: floatHeart linear forwards;
+    opacity: 0.75;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   SURPRISE SCREEN
+========================================================= */
+
+#surpriseScreen {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.2),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,255,255,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #850522,
+            #d90937,
+            #ff496a
+        );
+
+    color: white;
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#surpriseScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.surpriseBox {
+
+    width: min(600px, 90%);
+
+    text-align: center;
+
+    padding: 65px 35px;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.1);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
+
+    animation: boxAppear 1.2s ease;
+}
+
+@keyframes boxAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.gift {
+    font-size: 75px;
+    margin-bottom: 20px;
+
+    animation:
+        giftBounce 2s infinite;
+}
+
+@keyframes giftBounce {
+
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+}
+
+.smallText {
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    opacity: .8;
+
+    margin-bottom: 20px;
+}
+
+.surpriseBox h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 8vw, 75px);
+
+    line-height: .95;
+
+    margin-bottom: 25px;
+}
+
+.surpriseBox p {
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    opacity: .9;
+}
+
+.openButton {
+
+    margin-top: 30px;
+
+    padding: 17px 32px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    background: white;
+
+    color: var(--red);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.2);
+
+    transition: .3s;
+}
+
+.openButton:hover {
+
+    transform: translateY(-5px) scale(1.03);
+
+}
+
+.soundHint {
+
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    opacity: .6;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 7vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 10;
+
+    color: white;
+}
+
+.logo {
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ffd4dc;
+}
+
+.navLinks {
+
+    display: flex;
+
+    gap: 30px;
+}
+
+.navLinks a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    opacity: .8;
+
+    transition: .3s;
+}
+
+.navLinks a:hover {
+    opacity: 1;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding: 130px 9vw 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr .8fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(255,255,255,.15),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #9d0829,
+            #e7193f 55%,
+            #ff5271
+        );
+}
+
+.heroText {
+    max-width: 650px;
+}
+
+.eyebrow {
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    opacity: .7;
+}
+
+.hero h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: .92;
+
+    letter-spacing: -3px;
+}
+
+.hero h2 em {
+
+    color: #ffd7df;
+
+    font-weight: normal;
+}
+
+.heroDescription {
+
+    margin-top: 30px;
+
+    max-width: 520px;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+
+    color: #ffe9ed;
+}
+
+.heroButton {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255,255,255,.6);
+
+    border-radius: 100px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.heroButton:hover {
+
+    background: white;
+
+    color: var(--red);
+
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   HERO PHOTO
+========================================================= */
+
+.heroPhoto {
+
+    position: relative;
+
+    width: min(430px, 100%);
+
+    justify-self: center;
+
+    transform: rotate(3deg);
+}
+
+.heroPhoto img {
+
+    width: 100%;
+
+    display: block;
+
+    background: white;
+
+    padding: 10px;
+
+    box-shadow:
+        0 30px 60px rgba(50,0,10,.3);
+}
+
+.photoNote {
+
+    position: absolute;
+
+    right: -30px;
+
+    top: -35px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 20px;
+
+    transform: rotate(8deg);
+
+    color: #ffd4dc;
+}
+
+.photoHeart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    left: -30px;
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: white;
+
+    color: var(--red);
+
+    font-size: 32px;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.2);
+
+    animation: heartbeat 1.7s infinite;
+}
+
+@keyframes heartbeat {
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+
+    background: white;
+
+    color: var(--red);
+
+    padding: 16px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+.marqueeText {
+
+    display: inline-block;
+
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+
+    padding: 110px 9vw;
+}
+
+.sectionHeader {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 50px;
+
+    margin-bottom: 55px;
+}
+
+.sectionHeader h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(43px, 5vw, 68px);
+
+    line-height: 1;
+}
+
+.sectionHeader h3 em {
+
+    color: var(--red);
+
+    font-weight: normal;
+}
+
+.sectionDescription {
+
+    max-width: 430px;
+
+    color: #796367;
+
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.photoGrid {
+
+    display: grid;
+
+    grid-template-columns: repeat(12,1fr);
+
+    gap: 20px;
+}
+
+.photoCard {
+
+    background: white;
+
+    padding: 9px;
+
+    box-shadow:
+        0 20px 50px rgba(80,10,20,.13);
+
+    transition: .4s;
+}
+
+.photoCard:hover {
+
+    transform: translateY(-10px) rotate(0deg) !important;
+
+    box-shadow:
+        0 30px 60px rgba(80,10,20,.2);
+}
+
+.photoCard img {
+
+    width: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.photoCard p {
+
+    padding: 14px 8px 7px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    color: #6f575c;
+}
+
+.card1 {
+
+    grid-column: span 5;
+
+    transform: rotate(-2deg);
+}
+
+.card1 img {
+    aspect-ratio: 4/5;
+}
+
+.card2 {
+
+    grid-column: span 7;
+
+    transform: rotate(1.5deg);
+
+    margin-top: 30px;
+}
+
+.card2 img {
+    aspect-ratio: 4/3;
+}
+
+.card3 {
+
+    grid-column: 2 / span 4;
+
+    transform: rotate(2deg);
+
+    margin-top: 35px;
+}
+
+.card3 img {
+    aspect-ratio: 9/13;
+}
+
+.card4 {
+
+    grid-column: span 3;
+
+    transform: rotate(-2deg);
+}
+
+.card4 img {
+    aspect-ratio: 1/1;
+}
+
+.card5 {
+
+    grid-column: span 3;
+
+    transform: rotate(2deg);
+
+    margin-top: 40px;
+}
+
+.card5 img {
+    aspect-ratio: 4/3;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+
+    background: var(--red);
+
+    color: white;
+
+    padding: 120px 10%;
+
+    text-align: center;
+}
+
+.quoteMark {
+
+    font-family: Georgia, serif;
+
+    font-size: 120px;
+
+    opacity: .2;
+}
+
+.quote blockquote {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px,5vw,60px);
+
+    line-height: 1.1;
+}
+
+.quote blockquote span {
+
+    display: block;
+
+    color: #ffd5dc;
+
+    font-style: italic;
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.videoSection {
+
+    background: white;
+
+    text-align: center;
+}
+
+.videoSection h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px,5vw,65px);
+
+    margin-bottom: 15px;
+}
+
+.videoSection h3 em {
+
+    color: var(--red);
+
+    font-weight: normal;
+}
+
+.videoDescription {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    color: #796367;
+
+    line-height: 1.7;
+
+    margin-bottom: 45px;
+}
+
+.videoBox {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 10px;
+
+    background: #16090c;
+
+    box-shadow:
+        0 30px 70px rgba(50,0,10,.25);
+
+    position: relative;
+}
+
+.videoBox video {
+
+    width: 100%;
+
+    display: block;
+}
+
+.videoTag {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 25px;
+
+    background: white;
+
+    color: var(--red);
+
+    padding: 9px 15px;
+
+    border-radius: 100px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+/* =========================================================
+   REASONS
+========================================================= */
+
+.reasons {
+
+    padding: 110px 9vw;
+
+    background: #fff0f3;
+}
+
+.reasons h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px,5vw,68px);
+}
+
+.reasons h3 em {
+
+    color: var(--red);
+
+    font-weight: normal;
+}
+
+.reasonGrid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 18px;
+
+    margin-top: 55px;
+}
+
+.reason {
+
+    background: white;
+
+    padding: 30px 25px;
+
+    min-height: 230px;
+
+    border-top: 3px solid var(--red);
+
+    transition: .3s;
+}
+
+.reason:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 20px 40px rgba(90,10,25,.1);
+}
+
+.reasonNumber {
+
+    color: var(--red);
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+.reason h4 {
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    margin: 22px 0 10px;
+}
+
+.reason p {
+
+    color: #796367;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   LETTER SECTION
+========================================================= */
+
+.letterSection {
+
+    min-height: 650px;
+
+    padding: 110px 9vw;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.letterSection h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px,5vw,68px);
+
+    line-height: 1;
+}
+
+.letterSection h3 em {
+
+    color: var(--red);
+
+    font-weight: normal;
+}
+
+.letterSection p {
+
+    color: #796367;
+
+    margin-top: 20px;
+
+    line-height: 1.8;
+}
+
+.letterButton {
+
+    margin-top: 30px;
+
+    padding: 16px 28px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    background: var(--red);
+
+    color: white;
+
+    font-weight: bold;
+
+    box-shadow: 0 15px 30px rgba(200,10,40,.2);
+
+    transition: .3s;
+}
+
+.letterButton:hover {
+
+    transform: translateY(-4px);
+
+    background: var(--dark-red);
+}
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope {
+
+    width: min(450px,90%);
+
+    aspect-ratio: 1.55;
+
+    position: relative;
+
+    justify-self: center;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 25px 30px rgba(90,10,25,.2)
+        );
+
+    transition: .4s;
+}
+
+.envelope:hover {
+
+    transform:
+        translateY(-10px)
+        rotate(1deg);
+}
+
+.envelopeBody {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--red);
+
+    border-radius: 8px;
+}
+
+.envelopeFlap {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 0;
+
+    right: 0;
+
+    top: 0;
+
+    border-left: 225px solid transparent;
+
+    border-right: 225px solid transparent;
+
+    border-top: 175px solid #ff607c;
+
+    transform-origin: top;
+
+    transition: .7s;
+}
+
+.envelopeHeart {
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+
+    top: 53%;
+
+    transform: translate(-50%,-50%);
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--red);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 30px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #260c11;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 75px 20px;
+}
+
+.footerHeart {
+
+    font-size: 30px;
+
+    color: #ff4b6c;
+
+    margin-bottom: 20px;
+}
+
+footer p {
+
+    opacity: .6;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+footer h4 {
+
+    font-family: Georgia, serif;
+
+    font-size: 35px;
+
+    margin: 15px 0;
+
+    color: #ffdce2;
+}
+
+footer small {
+
+    opacity: .5;
+}
+
+/* =========================================================
+   LETTER MODAL
+========================================================= */
+
+#letterModal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+#letterModal.show {
+    display: flex;
+}
+
+.modalBackground {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(30,0,8,.8);
+
+    backdrop-filter: blur(8px);
+}
+
+.letter {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(700px,100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fffdf7;
+
+    padding: 60px;
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.35);
+
+    animation: letterOpen .6s ease;
+
+    background-image:
+        linear-gradient(
+            rgba(220,30,60,.06) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 30px;
+}
+
+@keyframes letterOpen {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(.94)
+            rotate(1deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+.closeLetter {
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 25px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 35px;
+
+    color: #80686d;
+}
+
+.letterTop {
+
+    color: var(--red);
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.letter h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 35px;
+
+    margin: 25px 0;
+}
+
+.letter p {
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #4c383c;
+
+    margin-bottom: 18px;
+}
+
+.letter strong {
+
+    color: var(--red);
+}
+
+.signature {
+
+    margin-top: 30px;
+
+    font-size: 20px !important;
+
+    font-style: italic;
+}
+
+.waxSeal {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 30px auto 0;
+
+    font-size: 25px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:850px) {
+
+    .navLinks {
+        display: none;
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 120px;
+    }
+
+    .heroPhoto {
+        width: min(390px,90vw);
+    }
+
+    .sectionHeader {
+        display: block;
+    }
+
+    .sectionDescription {
+        margin-top: 20px;
+    }
+
+    .reasonGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .letterSection {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .envelope {
+        order: -1;
+    }
+}
+
+@media(max-width:600px) {
+
+    .hero {
+
+        padding-left: 6vw;
+
+        padding-right: 6vw;
+    }
+
+    .hero h2 {
+        font-size: 55px;
+    }
+
+    .section {
+        padding: 80px 6vw;
+    }
+
+    .photoGrid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+    }
+
+    .card1,
+    .card2,
+    .card3,
+    .card4,
+    .card5 {
+
+        grid-column: auto;
+
+        margin-top: 0;
+
+        transform: none;
+    }
+
+    .card2 {
+        grid-column: span 2;
+    }
+
+    .reasonGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .reasons {
+        padding: 80px 6vw;
+    }
+
+    .letter {
+        padding: 45px 25px;
+    }
+
+    .envelopeFlap {
+
+        border-left-width: 45vw;
+
+        border-right-width: 45vw;
+
+        border-top-width: 32vw;
+    }
+
+    .quote {
+        padding: 90px 7%;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     FLOATING HEARTS
+========================================================= -->
+
+<div id="heartContainer"></div>
+
+
+<!-- =========================================================
+     SURPRISE SCREEN
+========================================================= -->
+
+<section id="surpriseScreen">
+
+    <div class="surpriseBox">
+
+        <div class="smallText">
+            A LITTLE SURPRISE FOR YOU
+        </div>
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <h1>
+            Hey Nani...
+        </h1>
+
+        <p>
+            I made something special for you.
+            <br>
+            So before you do anything else...
+            <br>
+            open this. ❤️
+        </p>
+
+        <button
+            class="openButton"
+            id="openSurprise"
+        >
+            Open Your Surprise ❤️
+        </button>
+
+        <div class="soundHint">
+            🔊 Turn your sound on for a tiny surprise
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN WEBSITE
+========================================================= -->
+
+<div id="mainWebsite">
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        Kalki <span>♥</span> Nani
+    </div>
+
+    <div class="navLinks">
+
+        <a href="#memories">
+            Memories
+        </a>
+
+        <a href="#video">
+            Our Movie
+        </a>
+
+        <a href="#letter">
+            Your Letter
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="heroText">
+
+        <div class="eyebrow">
+            TODAY IS ALL ABOUT YOU
+        </div>
+
+        <h2>
+
+            Happy Birthday,
+            <br>
+
+            <em>Nani ❤️</em>
+
+        </h2>
+
+        <p class="heroDescription">
+
+            Some people make life brighter
+            just by being in it.
+
+            You somehow managed to become
+            one of my favourite parts of life.
+
+            So today is all about celebrating
+            you, my favourite person. ❤️
+
+        </p>
+
+        <a
+            href="#memories"
+            class="heroButton"
+        >
+            Come see our memories ↓
+        </a>
+
+    </div>
+
+
+    <div class="heroPhoto">
+
+        <div class="photoNote">
+            made with love ♡
+        </div>
+
+        <img
+            src="assets/photo1.jpeg"
+            alt="Kalki and Nani"
+        >
+
+        <div class="photoHeart">
+            ♥
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
+
+<div class="marquee">
+
+    <div class="marqueeText">
+
+        HAPPY BIRTHDAY NANI ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+        I LOVE YOU ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+        HAPPY BIRTHDAY NANI ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+        ALWAYS US ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+
+        HAPPY BIRTHDAY NANI ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+        I LOVE YOU ❤️
+        &nbsp;&nbsp; • &nbsp;&nbsp;
+        HAPPY BIRTHDAY NANI ❤️
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MEMORIES
+========================================================= -->
+
+<section
+    class="section"
+    id="memories"
+>
+
+    <div class="sectionHeader">
+
+        <div>
+
+            <div class="eyebrow" style="color:#e50935">
+                OUR LITTLE WORLD
+            </div>
+
+            <h3>
+
+                Little moments,
+                <br>
+
+                <em>big memories.</em>
+
+            </h3>
+
+        </div>
+
+        <p class="sectionDescription">
+
+            No perfect poses.
+            No perfect plans.
+
+            Just us being us —
+            and somehow those are the
+            moments I want to keep forever.
+
+        </p>
+
+    </div>
+
+
+    <div class="photoGrid">
+
+
+        <figure class="photoCard card1">
+
+            <img
+                src="assets/photo2.jpeg"
+                alt="Nani and Kalki"
+            >
+
+            <p>
+                The kind of laughter
+                I never get tired of ❤️
+            </p>
+
+        </figure>
+
+
+        <figure class="photoCard card2">
+
+            <img
+                src="assets/photo3.jpeg"
+                alt="Nani and Kalki"
+            >
+
+            <p>
+                You + me + random little adventures.
+            </p>
+
+        </figure>
+
+
+        <figure class="photoCard card3">
+
+            <img
+                src="assets/photo4.jpeg"
+                alt="Nani and Kalki"
+            >
+
+            <p>
+                My favourite kind of chaos.
+            </p>
+
+        </figure>
+
+
+        <figure class="photoCard card4">
+
+            <img
+                src="assets/photo5.jpeg"
+                alt="Nani and Kalki"
+            >
+
+            <p>
+                The silly moments are the best ones.
+            </p>
+
+        </figure>
+
+
+        <figure class="photoCard card5">
+
+            <img
+                src="assets/photo6.jpeg"
+                alt="Nani and Kalki"
+            >
+
+            <p>
+                One more memory for our collection.
+            </p>
+
+        </figure>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTE
+========================================================= -->
+
+<section class="quote">
+
+    <div class="quoteMark">
+        “
+    </div>
+
+    <blockquote>
+
+        I don't need a thousand
+        perfect days.
+
+        <span>
+            Just give me a lifetime
+            of ordinary days with you.
+        </span>
+
+    </blockquote>
+
+</section>
+
+
+<!-- =========================================================
+     VIDEO
+========================================================= -->
+
+<section
+    class="section videoSection"
+    id="video"
+>
+
+    <div class="eyebrow" style="color:#e50935">
+        PRESS PLAY
+    </div>
+
+    <h3>
+        Our little
+        <em>movie.</em>
+    </h3>
+
+    <p class="videoDescription">
+
+        A few seconds of us,
+        because sometimes pictures
+        don't tell the whole story. ❤️
+
+    </p>
+
+
+    <div class="videoBox">
+
+        <video
+            controls
+            playsinline
+            poster="assets/photo3.jpeg"
+        >
+
+            <source
+                src="/assets/Ishita Vemuri_s Video - Oct 2, 2026.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support video playback.
+
+        </video>
+
+        <div class="videoTag">
+            ♡ Nani & Kalki ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REASONS
+========================================================= -->
+
+<section class="reasons">
+
+    <div class="eyebrow" style="color:#e50935">
+        JUST IN CASE YOU FORGOT
+    </div>
+
+    <h3>
+
+        Things I love
+        <em>about you.</em>
+
+    </h3>
+
+
+    <div class="reasonGrid">
+
+
+        <div class="reason">
+
+            <div class="reasonNumber">
+                01
+            </div>
+
+            <h4>
+                Your smile
+            </h4>
+
+            <p>
+                It has an unfair ability
+                to make everything feel better.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reasonNumber">
+                02
+            </div>
+
+            <h4>
+                Your presence
+            </h4>
+
+            <p>
+                Even doing absolutely nothing
+                feels special when you're around.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reasonNumber">
+                03
+            </div>
+
+            <h4>
+                Your heart
+            </h4>
+
+            <p>
+                The person you are is the part
+                of you I am most grateful for.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reasonNumber">
+                04
+            </div>
+
+            <h4>
+                Our us
+            </h4>
+
+            <p>
+                Messy, funny, imperfect
+                and completely ours.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LETTER SECTION
+========================================================= -->
+
+<section
+    class="letterSection"
+    id="letter"
+>
+
+
+    <div>
+
+        <div
+            class="eyebrow"
+            style="color:#e50935"
+        >
+            ONE LAST SURPRISE
+        </div>
+
+
+        <h3>
+
+            There is a letter
+            <br>
+
+            <em>with your name on it.</em>
+
+        </h3>
+
+
+        <p>
+
+            I couldn't fit everything
+            I want to say into a website...
+
+        </p>
+
+
+        <button
+            class="letterButton"
+            id="openLetter"
+        >
+            Open My Letter 💌
+        </button>
+
+    </div>
+
+
+    <!-- ENVELOPE -->
+
+    <div
+        class="envelope"
+        id="envelope"
+    >
+
+        <div class="envelopeBody"></div>
+
+        <div class="envelopeFlap"></div>
+
+        <div class="envelopeHeart">
+            ♥
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footerHeart">
+        ♥
+    </div>
+
+    <p>
+        Made especially for you
+    </p>
+
+    <h4>
+        Happy Birthday, Nani. ❤️
+    </h4>
+
+    <small>
+        Always yours, Kalki ♡
+    </small>
+
+</footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     LOVE LETTER MODAL
+========================================================= -->
+
+<div
+    id="letterModal"
+>
+
+
+    <div class="modalBackground"></div>
+
+
+    <article class="letter">
+
+
+        <button
+            class="closeLetter"
+            id="closeLetter"
+        >
+            ×
+        </button>
+
+
+        <div class="letterTop">
+
+            FOR MY NANI ♥
+
+        </div>
+
+
+        <h3>
+            Dear Nani,
+        </h3>
+
+
+        <p>
+
+            Happy birthday, my love. ❤️
+
+        </p>
+
+
+        <p>
+
+            I honestly don't know how to put everything
+            I feel for you into a few paragraphs,
+            because somehow you have become such a big
+            and beautiful part of my life.
+
+        </p>
+
+
+        <p>
+
+            Thank you for all the laughs,
+            the random conversations,
+            the stupid jokes,
+            the little fights,
+            the endless teasing,
+            the comfort,
+            the chaos,
+            and every single memory
+            we've made together.
+
+        </p>
+
+
+        <p>
+
+            Some of my favourite moments with you
+            aren't even the big ones.
+
+            They're the completely random moments —
+            sitting together,
+            laughing about something stupid,
+            annoying each other,
+            taking silly pictures,
+            or simply being next to each other.
+
+        </p>
+
+
+        <p>
+
+            I hope this year brings you
+            everything you've been wishing for.
+
+            I hope you achieve everything you dream about,
+            become the person you want to be,
+            and have a million reasons to smile.
+
+        </p>
+
+
+        <p>
+
+            And selfishly,
+            I hope I get to be there for a lot of it.
+
+            I want more random adventures,
+            more pictures,
+            more laughter,
+            more stupid conversations
+            and more memories with you.
+
+        </p>
+
+
+        <p>
+
+            You are one of the most special people
+            in my life, Nani.
+
+            And even though I may not always say it perfectly,
+            I hope you always know how much you mean to me.
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                I am so lucky to have you. ❤️
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            Here's to another year of you,
+            another year of us,
+            and a million beautiful memories
+            that are still waiting for us.
+
+        </p>
+
+
+        <p class="signature">
+
+            With all my love,
+            <br>
+
+            <strong>
+                Kalki ❤️
+            </strong>
+
+        </p>
+
+
+        <div class="waxSeal">
+            ♥
+        </div>
+
+
+    </article>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const surpriseScreen =
+    document.getElementById("surpriseScreen");
+
+const openSurprise =
+    document.getElementById("openSurprise");
+
+const mainWebsite =
+    document.getElementById("mainWebsite");
+
+const heartContainer =
+    document.getElementById("heartContainer");
+
+const letterModal =
+    document.getElementById("letterModal");
+
+const openLetter =
+    document.getElementById("openLetter");
+
+const closeLetter =
+    document.getElementById("closeLetter");
+
+const envelope =
+    document.getElementById("envelope");
+
+
+/* =========================================================
+   SOUND EFFECT SYSTEM
+   No external audio file required.
+========================================================= */
+
+let audioContext;
+
+
+/* Create audio context */
+
+function startAudio() {
+
+    if (!audioContext) {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    if (audioContext.state === "suspended") {
+
+        audioContext.resume();
+
+    }
+}
+
+
+/* Small magical chime */
+
+function playChime() {
+
+    startAudio();
+
+    const notes = [
+        523.25,
+        659.25,
+        783.99,
+        1046.50
+    ];
+
+    notes.forEach((frequency,index) => {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            frequency;
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        const start =
+            audioContext.currentTime +
+            index * .12;
+
+
+        gain.gain.setValueAtTime(
+            0,
+            start
+        );
+
+        gain.gain.linearRampToValueAtTime(
+            .12,
+            start + .04
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            start + .7
+        );
+
+
+        oscillator.start(start);
+
+        oscillator.stop(
+            start + .75
+        );
+
+    });
+
+}
+
+
+/* Heartbeat sound */
+
+function heartbeatSound() {
+
+    startAudio();
+
+    [0, .18].forEach((delay,index) => {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            index === 0 ? 120 : 100;
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        const time =
+            audioContext.currentTime +
+            delay;
+
+
+        gain.gain.setValueAtTime(
+            .001,
+            time
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .12,
+            time + .03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            time + .18
+        );
+
+
+        oscillator.start(time);
+
+        oscillator.stop(time + .2);
+
+    });
+
+}
+
+
+/* Letter opening sound */
+
+function letterSound() {
+
+    startAudio();
+
+    const oscillator =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+
+    oscillator.type = "triangle";
+
+    oscillator.frequency.setValueAtTime(
+        400,
+        audioContext.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+        900,
+        audioContext.currentTime + .5
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+
+    gain.gain.setValueAtTime(
+        .001,
+        audioContext.currentTime
+    );
+
+    gain.gain.linearRampToValueAtTime(
+        .12,
+        audioContext.currentTime + .05
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audioContext.currentTime + .7
+    );
+
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + .75
+    );
+
+}
+
+
+/* =========================================================
+   FLOATING HEART GENERATOR
+========================================================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("span");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+            ? "♥"
+            : "♡";
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        12 + Math.random() * 25 + "px";
+
+
+    heart.style.animationDuration =
+        4 + Math.random() * 5 + "s";
+
+
+    heartContainer.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },9000);
+
+}
+
+
+/* Create lots of hearts */
+
+function celebration() {
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        setTimeout(
+            createHeart,
+            i * 80
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   OPEN SURPRISE
+========================================================= */
+
+openSurprise.addEventListener(
+    "click",
+    () => {
+
+        startAudio();
+
+        playChime();
+
+        celebration();
+
+
+        surpriseScreen.classList.add(
+            "hide"
+        );
+
+
+        setTimeout(() => {
+
+            surpriseScreen.style.display =
+                "none";
+
+        },1000);
+
+    }
+);
+
+
+/* =========================================================
+   CONTINUOUS SOFT HEARTS
+========================================================= */
+
+setInterval(() => {
+
+    if (
+        surpriseScreen.style.display !==
+        "none"
+    ) return;
+
+    if (
+        document.hidden
+    ) return;
+
+    createHeart();
+
+},4500);
+
+
+/* =========================================================
+   OPEN LETTER
+========================================================= */
+
+function showLetter() {
+
+    letterSound();
+
+    celebration();
+
+
+    letterModal.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE LETTER
+========================================================= */
+
+function hideLetter() {
+
+    letterModal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* Button */
+
+openLetter.addEventListener(
+    "click",
+    showLetter
+);
+
+
+/* Envelope */
+
+envelope.addEventListener(
+    "click",
+    showLetter
+);
+
+
+/* Close button */
+
+closeLetter.addEventListener(
+    "click",
+    hideLetter
+);
+
+
+/* Click outside letter */
+
+document
+    .querySelector(".modalBackground")
+    .addEventListener(
+        "click",
+        hideLetter
+    );
+
+
+/* Escape key */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            hideLetter();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   HEARTBEAT WHEN HOVERING HEART
+========================================================= */
+
+document
+    .querySelector(".photoHeart")
+    .addEventListener(
+        "mouseenter",
+        heartbeatSound
+    );
+
+
+</script>
+
+</body>
+</html>
